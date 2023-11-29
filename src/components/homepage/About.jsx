@@ -5,8 +5,7 @@ import { fadeIn, staggerContainer } from '../data/motion';
 import { ContainerSlideIn } from '../../pages/Projects';
 
 const AboutDiv = styled(motion.div)`
-  max-width: 24rem;
-  min-height: 15rem; 
+  max-width: 24rem; 
   max-height: 27rem;
   color: #c3c3c3;
   position: absolute;
@@ -19,7 +18,7 @@ const AboutDiv = styled(motion.div)`
 
   
   &::-webkit-scrollbar {
-    width: 4px;
+    width: 8px;
     height: 4px; 
   }
 
@@ -38,23 +37,14 @@ const AboutDiv = styled(motion.div)`
 
   @media (max-width: 650px) {
     width: 280px;
-    height: calc(100% - 50px);
+    height: 50%;
     position: relative;
     margin-left: -1.6rem;
     margin-bottom: 2.5rem;
     margin-top: 1rem;
     overflow-y: scroll; 
   }
-
-  @media (max-width: 450px) {
-    width: 280px;
-    height: 5vh;
-    position: relative;
-    margin-left: -1.6rem;
-    margin-bottom: 2.5rem;
-    margin-top: -20px;
-    overflow-y: scroll;
-  }
+}
 `;
 const About = () => {
   return (

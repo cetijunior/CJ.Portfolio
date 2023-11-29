@@ -21,7 +21,7 @@ const Conteiner = styled(motion.div)`
   z-index: 99;
 
   &::-webkit-scrollbar {
-    width: 4px;
+    width: 8px;
     height: 4px; 
   }
 

@@ -6,8 +6,8 @@ const Conteiner = styled(motion.div)`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  width: 30%;
-  height: auto;
+  width: 35%;
+  height: 40%;
   color: #c3c3c3;
   position: absolute;
   margin-bottom: -1rem;
@@ -18,7 +18,7 @@ const Conteiner = styled(motion.div)`
 
   &::-webkit-scrollbar {
     width: 4px;
-    height: 4px;
+    height: 8px;
   }
 
   &::-webkit-scrollbar-thumb {
@@ -35,8 +35,8 @@ const Conteiner = styled(motion.div)`
   }
 
   @media (max-width: 650px) {
-    width: 300px;
-    height: auto;
+    width: 250px;
+    height: 180px;
     display: flexbox;
     flex-direction: row;
     position: relative;
@@ -52,9 +52,10 @@ export const ContainerSlideIn = styled(motion.div)`
 
 const StyledSkill = styled.div`
   color: rgb(195, 195, 195);
-  margin: 10px;
+  margin: 5px;
   background-color: #1a1a1a; /* Match your color theme */
   padding: 1rem;
+  height: auto;
   border-radius: 15px;
   cursor: pointer;
   transition: background-color 0.3s;

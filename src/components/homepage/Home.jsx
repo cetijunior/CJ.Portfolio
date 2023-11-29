@@ -21,6 +21,10 @@ const Background = styled.div`
   justify-content: center;
   font-family: "Inconsolata", monospace;
   overflow: hidden;
+
+  @media (max-width: 650px) {
+    height: 100vh;
+  }
 `;
 
 const Container = styled.div`
@@ -81,6 +85,7 @@ const Li = styled.li`
   @media (max-width: 650px) {
     margin-top: 1rem;
     align-items: start
+    padding: 0;
 `;
 
 const Home = () => {
