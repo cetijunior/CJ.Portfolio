@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
@@ -17,7 +17,6 @@ const Container = styled(motion.div)`
   font-family: "Inconsolata", monospace;
   overflow-y: scroll;
   overflow-x: hidden;
-
 
   &::-webkit-scrollbar {
     width: 8px;
@@ -46,27 +45,17 @@ const Container = styled(motion.div)`
     margin-right: 10px;
     overflow-x: scroll;
     overflow-y: hidden;
-
-    p:not(:first-child :second-child) {
-      display: none;
-    }
-
-    p.expanded {
-      display: block;
-    }
-  }
-
   }
 `;
 
 export const ContainerSlideIn = styled(motion.div)`
-    position: relative;
+  position: relative;
 `;
 
 const StyledSkill = styled.div`
   color: rgb(195, 195, 195);
   margin: 5px;
-  background-color: #1a1a1a; /* Match your color theme */
+  background-color: #1a1a1a;
   padding: 1rem;
   height: auto;
   width: auto;
@@ -75,89 +64,84 @@ const StyledSkill = styled.div`
   transition: background-color 0.3s;
 
   &:hover {
-    background-color:  #006633; 
+    background-color: #006633;
   }
 
   @media (max-width: 650px) {
     display: flex;
-    margin: 20px;
-    margin-left: -1rem;
-    padding: 1rem;
-    padding-left: 1rem;
+    margin: 5px;
     flex-direction: column;
   }
 `;
-
 
 const Skills = () => {
   const skillsList = [
     {
       name: "JavaScript",
       experience: 85,
-      details: "Core language features, asynchronous programming, ES6+",
+      details: "Core language features, Asynchronous programming, ES6+"
     },
     {
       name: "React.js",
       experience: 80,
-      details: "Component-based architecture, JSX syntax, state and props management",
+      details: "Component-based architecture, JSX syntax, State and props management"
     },
     {
       name: "HTML5",
       experience: 90,
-      details: "Semantic HTML, accessibility, responsive design",
+      details: "Semantic HTML, Accessibility, Responsive design"
     },
     {
       name: "CSS3",
       experience: 85,
-      details: "Selectors, box model, Flexbox, Grid, animations, preprocessors (Sass/SCSS)",
+      details: "Selectors, Box model, Flexbox, Grid, Animations, Preprocessors (Sass/SCSS)"
     },
     {
       name: "Node.js",
       experience: 75,
-      details: "Server-side JavaScript, npm, Express.js, RESTful APIs",
+      details: "Server-side JavaScript, npm, Express.js, RESTful APIs"
     },
     {
       name: "Next.js",
       experience: 70,
-      details: "React framework with server-side rendering, routing, API integration",
+      details: "React framework with server-side rendering, Routing, API integration"
     },
     {
       name: "TypeScript",
       experience: 60,
-      details: "Typed superset of JavaScript, static typing for large-scale applications",
+      details: "Typed superset of JavaScript, Static typing for large-scale applications"
     },
     {
       name: "Git",
       experience: 80,
-      details: "Version control, branching, merging, pull requests",
+      details: "Version control, Branching, Merging, Pull requests"
     },
     {
       name: "Responsive Design",
       experience: 85,
-      details: "Media queries, mobile-first design, cross-browser compatibility",
+      details: "Media queries, Mobile-first design, Cross-browser compatibility"
     },
     {
       name: "Webpack",
       experience: 70,
-      details: "Module bundler, asset management, code splitting",
+      details: "Module bundler, Asset management, Code splitting"
     },
     {
       name: "Testing",
       experience: 65,
-      details: "Unit testing, integration testing, Jest, React Testing Library",
+      details: "Unit testing, Integration testing, Jest, React Testing Library"
     },
     {
       name: "Database (MongoDB)",
       experience: 50,
-      details: "Basic CRUD operations, schema design",
+      details: "Basic CRUD operations, Schema design"
     },
     {
       name: "GraphQL",
       experience: 40,
-      details: "Query language, Apollo Client, server-side implementation",
-    },
+      details: "Query language, Apollo Client, Server-side implementation"
+    }
   ];
-
 
   const [selectedSkill, setSelectedSkill] = useState(null);
 
@@ -177,6 +161,13 @@ const Skills = () => {
       },
     },
   };
+
+  // Check screen size and reset selectedSkill if less than 450px
+  useEffect(() => {
+    if (window.innerWidth < 450) {
+      setSelectedSkill(null);
+    }
+  }, []);
 
   return (
     <>
