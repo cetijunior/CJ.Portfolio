@@ -2,22 +2,25 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
-const Conteiner = styled(motion.div)`
-  display: flex;
-  flex-direction: column;
+const Container = styled(motion.div)`
+  display: grid;
   justify-content: flex-end;
-  width: 35%;
-  height: 40%;
+  width: 50%;
+  height: 80%;
   color: #c3c3c3;
   position: absolute;
-  margin-bottom: -1rem;
+  margin: 1.6rem;
+  margin-left: -0.5rem;
   padding: 1.6rem;
   bottom: 0;
   right: 0;
   font-family: "Inconsolata", monospace;
+  overflow-y: scroll;
+  overflow-x: hidden;
+
 
   &::-webkit-scrollbar {
-    width: 4px;
+    width: 8px;
     height: 8px;
   }
 
@@ -35,14 +38,24 @@ const Conteiner = styled(motion.div)`
   }
 
   @media (max-width: 650px) {
-    width: 250px;
-    height: 180px;
+    width: auto;
+    height: auto;
     display: flexbox;
     flex-direction: row;
     position: relative;
-    margin-left: 10px;
     margin-right: 10px;
-    overflow-x: scroll; 
+    overflow-x: scroll;
+    overflow-y: hidden;
+
+    p:not(:first-child :second-child) {
+      display: none;
+    }
+
+    p.expanded {
+      display: block;
+    }
+  }
+
   }
 `;
 
@@ -56,6 +69,7 @@ const StyledSkill = styled.div`
   background-color: #1a1a1a; /* Match your color theme */
   padding: 1rem;
   height: auto;
+  width: auto;
   border-radius: 15px;
   cursor: pointer;
   transition: background-color 0.3s;
@@ -64,11 +78,12 @@ const StyledSkill = styled.div`
     background-color:  #006633; 
   }
 
-  @media (max-width: 800px) {
-    column-count: 2;
+  @media (max-width: 650px) {
     display: flex;
-    margin: 5px;
+    margin: 20px;
+    margin-left: -1rem;
     padding: 1rem;
+    padding-left: 1rem;
     flex-direction: column;
   }
 `;
@@ -78,35 +93,71 @@ const Skills = () => {
   const skillsList = [
     {
       name: "JavaScript",
-      experience: 90,
+      experience: 85,
       details: "Core language features, asynchronous programming, ES6+",
     },
     {
-      name: "React",
+      name: "React.js",
       experience: 80,
       details: "Component-based architecture, JSX syntax, state and props management",
     },
     {
-      name: "HTML",
-      experience: 95,
-      details: "Structure and semantics of HTML elements, HTML5 features",
+      name: "HTML5",
+      experience: 90,
+      details: "Semantic HTML, accessibility, responsive design",
     },
     {
-      name: "CSS",
+      name: "CSS3",
       experience: 85,
-      details: "Selectors, box model, Flexbox and Grid, responsive design",
+      details: "Selectors, box model, Flexbox, Grid, animations, preprocessors (Sass/SCSS)",
     },
     {
       name: "Node.js",
       experience: 75,
-      details: "Server-side JavaScript, npm, event-driven architecture",
+      details: "Server-side JavaScript, npm, Express.js, RESTful APIs",
     },
     {
-      name: "NextJS",
+      name: "Next.js",
       experience: 70,
-      details: "React framework with server-side rendering, routing, and more",
+      details: "React framework with server-side rendering, routing, API integration",
+    },
+    {
+      name: "TypeScript",
+      experience: 60,
+      details: "Typed superset of JavaScript, static typing for large-scale applications",
+    },
+    {
+      name: "Git",
+      experience: 80,
+      details: "Version control, branching, merging, pull requests",
+    },
+    {
+      name: "Responsive Design",
+      experience: 85,
+      details: "Media queries, mobile-first design, cross-browser compatibility",
+    },
+    {
+      name: "Webpack",
+      experience: 70,
+      details: "Module bundler, asset management, code splitting",
+    },
+    {
+      name: "Testing",
+      experience: 65,
+      details: "Unit testing, integration testing, Jest, React Testing Library",
+    },
+    {
+      name: "Database (MongoDB)",
+      experience: 50,
+      details: "Basic CRUD operations, schema design",
+    },
+    {
+      name: "GraphQL",
+      experience: 40,
+      details: "Query language, Apollo Client, server-side implementation",
     },
   ];
+
 
   const [selectedSkill, setSelectedSkill] = useState(null);
 
@@ -129,7 +180,7 @@ const Skills = () => {
 
   return (
     <>
-      <Conteiner
+      <Container
         initial="hidden"
         animate="visible"
         variants={floatFromRightVariants}
@@ -141,13 +192,18 @@ const Skills = () => {
               <p>Experience: {skill.experience}%</p>
               {selectedSkill === i && (
                 <div>
-                  <p>{skill.details}</p>
+                  <p>Details:</p>
+                  <ol style={{ paddingLeft: 0, marginLeft: 20 }}>
+                    {skill.details.split(',').map((item, index) => (
+                      <li key={index}>{item.trim()}</li>
+                    ))}
+                  </ol>
                 </div>
               )}
             </StyledSkill>
           </ContainerSlideIn>
         ))}
-      </Conteiner>
+      </Container>
     </>
   );
 };

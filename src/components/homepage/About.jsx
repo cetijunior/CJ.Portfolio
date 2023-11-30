@@ -43,6 +43,7 @@ const AboutDiv = styled(motion.div)`
     margin-bottom: 2.5rem;
     margin-top: 1rem;
     overflow-y: scroll; 
+    overflow-x: hidden;
   }
 }
 `;
@@ -54,7 +55,7 @@ const About = () => {
       whileInView="show"
       viewport={{ once: false, amount: 0.25 }}
     >
-      <ContainerSlideIn variants={fadeIn("left", "tween", 0.2, 0.8)}>
+      <ContainerSlideIn variants={fadeIn("left", "tween", 0.2, 0.6)}>
       <div>
     <p>
       Hey there! I'm CJ, a self-taught Front-end Jr. Developer, passionate about web development and remote work.

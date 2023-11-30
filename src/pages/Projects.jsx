@@ -7,24 +7,25 @@ import { projects } from "../components/data/data";
 import web from "../assets/web.png";
 import Github from "../assets/github.svg";
 
-const Conteiner = styled(motion.div)`
-  display: flex;
-  flex-direction: column; 
-  flex-wrap: wrap; 
-  justify-content: flex-end;  
-  height: auto;
+const Container = styled(motion.div)`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  justify-content: flex-end;
+  height: 85%;
   color: #c3c3c3;
   position: absolute;
+  margin: 1.6rem;
   bottom: 0;
   right: 0;
   font-family: "Inconsolata", monospace;
-  z-index: 99;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  
 
   &::-webkit-scrollbar {
     width: 8px;
-    height: 4px; 
+    height: 8px;
   }
-
 
   &::-webkit-scrollbar-thumb {
     background-color: #006633;
@@ -32,19 +33,19 @@ const Conteiner = styled(motion.div)`
   }
 
   &::-webkit-scrollbar-track {
-    background-color: #1a1a1a; 
+    background-color: #1a1a1a;
   }
 
   @media (max-width: 650px) {
-    width: 350px;
+    width: auto;
+    height: 150px;
     display: flexbox;
-    flex-direction: column; 
-    height: 250px;
+    align-items: start;
+    flex-direction: row;
     position: relative;
-    margin-left: -1.6rem;
-    margin-bottom: -1rem;
-    margin-top: 1rem;
-    overflow-y: scroll; 
+    margin-right: 10px;
+    overflow-x: scroll;
+    overflow-y: hidden;
   }
 `;
 
@@ -63,12 +64,13 @@ const Social = styled.img`
   height: 22px;
   margin-top: 6px;
   cursor: pointer;
+  align-self: center;
 `;
 
 const Projects = () => {
   return (
     <>
-      <Conteiner
+      <Container
         variants={staggerContainer}
         initial="hidden"
         whileInView="show"
@@ -111,7 +113,7 @@ const Projects = () => {
             </ContainerSlideIn>
           );
         })}
-      </Conteiner>
+      </Container>
     </>
   );
 };

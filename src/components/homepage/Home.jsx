@@ -22,8 +22,9 @@ const Background = styled.div`
   font-family: "Inconsolata", monospace;
   overflow: hidden;
 
-  @media (max-width: 650px) {
+  @media (max-width: 450px) {
     height: 100vh;
+    overflow: none;
   }
 `;
 
