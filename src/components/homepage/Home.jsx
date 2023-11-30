@@ -20,12 +20,7 @@ const Background = styled.div`
   align-items: center;
   justify-content: center;
   font-family: "Inconsolata", monospace;
-  overflow: hidden;
 
-  @media (max-width: 450px) {
-    height: 100vh;
-    overflow: none;
-  }
 `;
 
 const Container = styled.div`
@@ -35,6 +30,7 @@ const Container = styled.div`
   background-color: hsl(0, 0%, 5%);
   position: fixed;
   animation: ${fadeIn} 1s ease-in-out forwards;
+
 `;
 
 const Header = styled.div`

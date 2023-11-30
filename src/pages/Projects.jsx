@@ -38,7 +38,7 @@ const Container = styled(motion.div)`
 
   @media (max-width: 650px) {
     width: auto;
-    height: 150px;
+    height: auto;
     display: flexbox;
     align-items: start;
     flex-direction: row;
