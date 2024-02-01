@@ -34,9 +34,18 @@ const Social = styled.img`
   width: 32px;
   height: 32px;
   cursor: pointer;
+  margin-left: -8px;
+  transition: background-color 0.3s;
+  border-radius: 10px;
+
+  &:hover {
+    background-color: #006633;
+    border-radius: 10px;
+
+  }
 
   @media (max-width: 650px) {
-    align-items: start;
+    align-items: start;  
   }
 `;
 
@@ -47,8 +56,10 @@ const ResumeButton = styled.button`
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 16px;
   color: black;
+  font-weight: bold;
+  margin-left: -8px;
 
   &:hover {
     background-color: #004d40;
@@ -59,8 +70,8 @@ const Center = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  margin: 1.6rem;
+  gap: 15px;
+  margin: 1rem;
 
   @media (max-width: 650px) {
     align-items: start;
@@ -102,13 +113,13 @@ const Contact = () => {
               <Social src={Github} alt="CJ's Github" />
           </a>
           <a
-            href="https://www.linkedin.com/in/ceti-lame-b39504189/"
+            href="https://www.linkedin.com/in/shefqet-cj-lame/"
             target="_blank"
           >
             <Social src={Linkedin} alt="CJ's LinkedIn" />
           </a>
-          <ResumeButton onClick={() => window.open("https://drive.google.com/file/d/1fmuA_PlPhS9qN2-pC4JvjcRc5MeSb3um/view?usp=sharing", "_blank")} download>
-            Download Resume
+          <ResumeButton onClick={() => window.open("https://drive.google.com/file/d/1Zlzr6kKI5a8GyUAtTLO4x_fXra8i3Qof/view?usp=sharing", "_blank")} download>
+            Get Resume
           </ResumeButton>
         </Center>
       </Info>

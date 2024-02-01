@@ -24,8 +24,8 @@ const Background = styled.div`
 `;
 
 const Container = styled.div`
-  height: calc(100vh - 50px);
-  width: calc(100vw - 30px);
+  height: calc(100vh - 70px);
+  width: calc(100vw - 50px);
   border: 1px solid #c3c3c3;
   background-color: hsl(0, 0%, 5%);
   position: fixed;
@@ -58,6 +58,8 @@ const Flex = styled.div`
 
 const Ul = styled.ul`
   list-style: none;
+  background-color: ;
+  transition: background-color 0.3s;
   cursor: pointer;
   padding-top: 0rem;
   padding-bottom: 2rem;
@@ -77,7 +79,19 @@ const Li = styled.li`
   padding-top: 0.8rem;
   font-weight: 900;
   margin-top: 2.5rem;
-  margin-right: 20px; /* Add some space between list items */
+  font-size: 1rem;
+  rounded: full;
+  cursor: pointer;
+  width: auto;
+  height: 25px;
+  transition: background-color 0.3s;
+  border-radius: 10px;
+
+  &:hover {
+    background-color: #006633;
+    border-radius: 10px;
+
+  }
 
   @media (max-width: 650px) {
     margin-top: 1rem;
@@ -89,7 +103,7 @@ const Home = () => {
   useEffect(() => {
     // Initialize Typed on the webD element
     const webD = new Typed(".web-developer", {
-      strings: [".web developer", ".enthusiastic coder", ".get in touch!"],
+      strings: [".web developer", ".enthusiastic coder", ".digitally creative", ".part-time producer" , ".get in touch!"],
       startDelay: 400,
       typeSpeed: 70,
       backDelay: 500,
@@ -118,7 +132,7 @@ const Home = () => {
           <Ul>
             <Li>
               <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-                Home -- Faqja Kryesore
+              Home -- Faqja Kryseore
               </Link>
             </Li>
             <Li>
@@ -140,7 +154,7 @@ const Home = () => {
             <Li>
               <Link
                 to="/Contact"
-                style={{ textDecoration: "none", color: "white" }}
+                style={{ textDecoration: "none", color: "white", hover: "#006633" }}
               >
                 Contact -- Kontakto
               </Link>

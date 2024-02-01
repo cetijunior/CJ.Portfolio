@@ -60,8 +60,9 @@ const About = () => {
     <p>
       Hey there! I'm CJ, a self-taught Front-end Jr. Developer, passionate about web development and remote work.
     </p>
+      Primary Techs: Javascript, ReactJs, CSS, Styled Components, SASS, HTML.
     <p>
-      Primary Techs: Javascript, ReactJs, CSS, Styled Components, SASS, HTML. Currently studying Typescript and Node.
+      Currently studying Typescript and Node.
     </p>
     <p>
       With a background in Electronics engineering and Computer Science, I bring a unique blend of technical know-how and creativity.

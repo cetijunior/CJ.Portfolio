@@ -1,0 +1,9 @@
+CJ.Portfolio 
+
+About Me: 
+
+Hello! I'm Shefqet Lame, but you can call me CJ. I'm a proud Electronics Engineering graduate from the Harry Fultz Institute in Tirana, Albania, where I not only honed my skills in Electrical Engineering but also delved deeply into the realms of Computer Science and Robotics. My academic journey has equipped me with a Professional Diploma in Electrical Engineering and various certifications in Programming, Robotics, and Engineering.
+
+My programming toolkit is diverse, encompassing languages like Java, Python, JavaScript (with ReactJS and NextJS), TypeScript, and the foundational HTML 5, CSS, and SQL. I'm also proficient in tools such as VS Code, Git, GitHub, and more, balancing my technical skills with creative tools like Photoshop, Lightroom CC, and Canva.
+
+Apart from being tech-savvy, I'm multilingual, fluent in Albanian, English (B2 Certified), and German (Intermediate, B1 Certified). My passion lies in merging the intricacies of engineering with the limitless possibilities of programming and robotics, aiming to create solutions that resonate in the real world. Let's connect and explore how we can innovate together!

@@ -65,6 +65,14 @@ const Social = styled.img`
   margin-top: 6px;
   cursor: pointer;
   align-self: center;
+  transition: background-color 0.3s;
+  border-radius: 10px;
+
+  &:hover {
+    background-color: #006633;
+    border-radius: 10px;
+  }
+
 `;
 
 const Projects = () => {

@@ -78,68 +78,88 @@ const Skills = () => {
   const skillsList = [
     {
       name: "JavaScript",
-      experience: 85,
-      details: "Core language features, Asynchronous programming, ES6+"
-    },
-    {
-      name: "React.js",
-      experience: 80,
-      details: "Component-based architecture, JSX syntax, State and props management"
-    },
-    {
-      name: "HTML5",
-      experience: 90,
-      details: "Semantic HTML, Accessibility, Responsive design"
-    },
-    {
-      name: "CSS3",
-      experience: 85,
-      details: "Selectors, Box model, Flexbox, Grid, Animations, Preprocessors (Sass/SCSS)"
-    },
-    {
-      name: "Node.js",
-      experience: 75,
-      details: "Server-side JavaScript, npm, Express.js, RESTful APIs"
-    },
-    {
-      name: "Next.js",
-      experience: 70,
-      details: "React framework with server-side rendering, Routing, API integration"
+      experience: "85",
+      details: "Core language features, ReactJS, NextJS"
     },
     {
       name: "TypeScript",
-      experience: 60,
-      details: "Typed superset of JavaScript, Static typing for large-scale applications"
+      experience: "75",
+      details: "Modern Website Design, Enhanced efficiency"
+    },
+    {
+      name: "HTML",
+      experience: "80",
+      details: "Semantic HTML, Building the structure of web pages"
+    },
+    {
+      name: "CSS",
+      experience: "85",
+      details: "Styling web pages, Responsive Design, Flexbox, Grid"
+    },
+    {
+      name: "SQL",
+      experience: "75",
+      details: "Database Management, Querying, Data Manipulation"
+    },
+    {
+      name: "Java",
+      experience: "70",
+      details: "Object-oriented programming, Application Development"
+    },
+    {
+      name: "Python",
+      experience: "70",
+      details: "Scripting, Data Analysis, Back-End Development"
+    },
+    {
+      name: "VS Code",
+      experience: "80",
+      details: "Code Editor, Debugging, Extensions for Enhanced Functionality"
     },
     {
       name: "Git",
-      experience: 80,
-      details: "Version control, Branching, Merging, Pull requests"
+      experience: "85",
+      details: "Version Control, Collaboration, Code Hosting Platform"
     },
     {
-      name: "Responsive Design",
-      experience: 85,
-      details: "Media queries, Mobile-first design, Cross-browser compatibility"
+      name: "GitHub",
+      experience: "85",
+      details: "Version Control, Collaboration, Code Hosting Platform"
     },
     {
-      name: "Webpack",
-      experience: 70,
-      details: "Module bundler, Asset management, Code splitting"
+      name: "NetBeans",
+      experience: "75",
+      details: "App Development, Desktop Developing, Debugging"
     },
     {
-      name: "Testing",
-      experience: 65,
-      details: "Unit testing, Integration testing, Jest, React Testing Library"
+      name: "Photoshop",
+      experience: "75",
+      details: "Image Editing, Graphic Design, Digital Art Creation"
     },
     {
-      name: "Database (MongoDB)",
-      experience: 50,
-      details: "Basic CRUD operations, Schema design"
+      name: "Lightroom CC",
+      experience: "80",
+      details: "Photo Editing and Organization, Color Correction, Effects"
     },
     {
-      name: "GraphQL",
-      experience: 40,
-      details: "Query language, Apollo Client, Server-side implementation"
+      name: "Canva",
+      experience: "80",
+      details: "Photo Editing, Media Creation, Effects"
+    },
+    {
+      name: "FL Studio",
+      experience: "90",
+      details: "Music Production, Audio Engineering, Mixing and Mastering"
+    },
+    {
+      name: "XAMPP",
+      experience: "75",
+      details: "Local Database Setup, Data Management, Data Manipulation"
+    },
+    {
+      name: "Android Studio",
+      experience: "70",
+      details: "App Development, Mobile Development, Debugging"
     }
   ];
 
