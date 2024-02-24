@@ -1,6 +1,8 @@
 Deployment Link:
 https://cj-portfolio-hfy4rkxag-cetijuniors-projects.vercel.app/
 
+This is my personal portfolio that i build by taking inspirations here and there, inside you can find some of the projects i have done, some skills i posses and my Resume(if anyone is interested in hiring me :)
+
 [About Me]
 ![Screenshot 2024-02-24 164831](https://github.com/cetijunior/CJ.Portfolio/assets/78642663/81c2cd70-2019-462e-8c70-1e0f0a87bd2e)
 
@@ -13,4 +15,3 @@ https://cj-portfolio-hfy4rkxag-cetijuniors-projects.vercel.app/
 [Contact]
 ![Screenshot 2024-02-24 164903](https://github.com/cetijunior/CJ.Portfolio/assets/78642663/513e2535-ac04-474a-95c0-ae2906909219)
 
-This is my personal portfolio that i build by taking inspirations here and there, inside you can find some of the projects i have done, some skills i posses and my Resume(if anyone is interested in hiring me :)
