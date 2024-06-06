@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { fadeIn, staggerContainer } from "../components/data/motion";
 
 const Container = styled(motion.div)`
   display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   justify-content: flex-end;
-  width: 50%;
-  height: 80%;
+  height: 85%;
   color: #c3c3c3;
   position: absolute;
   margin: 1.6rem;
-  margin-left: -0.5rem;
-  padding: 1.6rem;
   bottom: 0;
   right: 0;
   font-family: "Inconsolata", monospace;
@@ -62,6 +61,7 @@ const StyledSkill = styled.div`
   border-radius: 15px;
   cursor: pointer;
   transition: background-color 0.3s;
+  overflow: hidden;
 
   &:hover {
     background-color: #006633;
@@ -72,6 +72,11 @@ const StyledSkill = styled.div`
     margin: 5px;
     flex-direction: column;
   }
+`;
+
+const ExpandableContent = styled(motion.div)`
+  overflow: hidden;
+  width: auto; /* Set a fixed width for expanded content */
 `;
 
 const Skills = () => {
@@ -165,21 +170,9 @@ const Skills = () => {
 
   const [selectedSkill, setSelectedSkill] = useState(null);
 
-  const floatFromRightVariants = {
-    hidden: {
-      x: 100,
-      opacity: 0,
-      transition: {
-        duration: 2,
-      },
-    },
-    visible: {
-      x: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.8,
-      },
-    },
+  const expandCollapseVariants = {
+    hidden: { opacity: 0, height: 0, width: 0 },
+    visible: { opacity: 1, height: 'auto', width: 300 }, // Set fixed width for visible state
   };
 
   // Check screen size and reset selectedSkill if less than 450px
@@ -192,25 +185,37 @@ const Skills = () => {
   return (
     <>
       <Container
+        variants={staggerContainer}
         initial="hidden"
-        animate="visible"
-        variants={floatFromRightVariants}
+        whileInView="show"
+        viewport={{ once: false, amount: 0.25 }}
       >
         {skillsList.map((skill, i) => (
-          <ContainerSlideIn key={i} variants={floatFromRightVariants}>
+          <ContainerSlideIn
+            key={i}
+            variants={fadeIn("left", "tween", (i + 1) * 0.2, 0.8)}
+          >
             <StyledSkill onClick={() => setSelectedSkill(selectedSkill === i ? null : i)}>
               <h3 style={{ fontWeight: 400 }}>• {skill.name}</h3>
               <p>Experience: {skill.experience}%</p>
-              {selectedSkill === i && (
-                <div>
-                  <p>Details:</p>
-                  <ol style={{ paddingLeft: 0, marginLeft: 20 }}>
-                    {skill.details.split(',').map((item, index) => (
-                      <li key={index}>{item.trim()}</li>
-                    ))}
-                  </ol>
-                </div>
-              )}
+              <AnimatePresence>
+                {selectedSkill === i && (
+                  <ExpandableContent
+                    initial="visible"
+                    animate="visible"
+                    exit="hidden"
+                    variants={expandCollapseVariants}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <p>Details:</p>
+                    <ol style={{ paddingLeft: 10, marginLeft: 20 }}>
+                      {skill.details.split(',').map((item, index) => (
+                        <li key={index}>{item.trim()}</li>
+                      ))}
+                    </ol>
+                  </ExpandableContent>
+                )}
+              </AnimatePresence>
             </StyledSkill>
           </ContainerSlideIn>
         ))}

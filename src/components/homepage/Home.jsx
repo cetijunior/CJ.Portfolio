@@ -34,6 +34,7 @@ const Container = styled.div`
 `;
 
 const Header = styled.div`
+  cursor: cell;
   width: 16rem;
   height: 20rem;
   color: #c3c3c3;
@@ -80,24 +81,29 @@ const Li = styled.li`
   font-weight: 900;
   margin-top: 2.5rem;
   font-size: 1rem;
-  rounded: full;
+  border-radius: 0; // default border-radius
+  position: relative;
   cursor: pointer;
   width: auto;
   height: 25px;
-  transition: background-color 0.3s;
-  border-radius: 10px;
+  transition: padding 0.3s, margin 0.3s, background-color 0.3s, border-radius 0.3s; // added transition here
 
   &:hover {
     background-color: #006633;
     border-radius: 10px;
-
+    margin: 2px 2px;
+    padding: 6px 6px;
+    margin-top: 2.5rem;
+    padding-top: 0.8rem;
   }
 
   @media (max-width: 650px) {
     margin-top: 1rem;
-    align-items: start
+    align-items: start;
     padding: 0;
+  }
 `;
+
 
 const Home = () => {
   useEffect(() => {
@@ -130,35 +136,37 @@ const Home = () => {
           </Flex>
 
           <Ul>
-            <Li>
-              <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-              Home -- Faqja Kryseore
-              </Link>
-            </Li>
-            <Li>
-              <Link
-                to="/Skills"
-                style={{ textDecoration: "none", color: "white" }}
-              >
+            
+            <Link to="/" style={{ textDecoration: "none", color: "white" }}>
+              <Li>
+                Home -- Faqja Kryseore
+              </Li>
+            </Link>
+            
+            <Link to="/Skills" style={{ textDecoration: "none", color: "white" }}>
+              <Li>
                 Skills -- Aftesite
-              </Link>
-            </Li>
-            <Li>
-              <Link
+              </Li>
+            </Link>
+            
+            
+            <Link
                 to="/Projects"
                 style={{ textDecoration: "none", color: "white" }}
               >
+              <Li>
                 Projects -- Projekte
-              </Link>
-            </Li>
-            <Li>
-              <Link
+              </Li>
+            </Link>
+            
+            <Link
                 to="/Contact"
                 style={{ textDecoration: "none", color: "white", hover: "#006633" }}
               >
+              <Li>
                 Contact -- Kontakto
-              </Link>
-            </Li>
+              </Li>
+            </Link>
           </Ul>
 
           <Outlet />

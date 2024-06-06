@@ -118,7 +118,7 @@ const Contact = () => {
           >
             <Social src={Linkedin} alt="CJ's LinkedIn" />
           </a>
-          <ResumeButton onClick={() => window.open("https://drive.google.com/file/d/1Zlzr6kKI5a8GyUAtTLO4x_fXra8i3Qof/view?usp=sharing", "_blank")} download>
+          <ResumeButton onClick={() => window.open("https://drive.google.com/file/d/1Mgiqq5mZZTfvpkINffIH3dU66WOjPaUd/view?usp=sharing", "_blank")} download>
             Get Resume
           </ResumeButton>
         </Center>
