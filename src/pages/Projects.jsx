@@ -48,7 +48,7 @@ const Container = styled(motion.div)`
   }
 `;
 
-const ContainerSlideIn = styled(motion.div)`
+export const ContainerSlideIn = styled(motion.div)`
   width: 60%;
   position: relative;
   margin-right: 50px;
