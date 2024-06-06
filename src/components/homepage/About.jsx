@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { fadeIn, staggerContainer } from '../data/motion';
-import { ContainerSlideIn } from '../../pages/Projects';
 
 const AboutDiv = styled(motion.div)`
   max-width: 24rem; 
@@ -47,6 +46,14 @@ const AboutDiv = styled(motion.div)`
   }
 }
 `;
+
+const ContainerSlideIn = styled(motion.div)`
+  width: 100%;
+  position: relative;
+  margin-right: 50px;
+`;
+
+
 const About = () => {
   return (
     <AboutDiv

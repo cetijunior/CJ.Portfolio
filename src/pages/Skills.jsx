@@ -74,6 +74,7 @@ const StyledSkill = styled.div`
   }
 `;
 
+
 const ExpandableContent = styled(motion.div)`
   overflow: hidden;
   width: auto; /* Set a fixed width for expanded content */
