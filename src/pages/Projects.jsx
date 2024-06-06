@@ -36,15 +36,15 @@ const Container = styled(motion.div)`
   }
 
   @media (max-width: 650px) {
-    width: auto;
-    height: auto;
+    width: 100%;
+    height: 100%;
     display: flex;
-    align-items: start;
+    align-items: center;
     flex-direction: column;
     position: relative;
-    margin-right: 10px;
-    overflow-x: scroll;
-    overflow-y: hidden;
+    margin-right: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 `;
 
@@ -52,6 +52,13 @@ export const ContainerSlideIn = styled(motion.div)`
   width: 60%;
   position: relative;
   margin-right: 50px;
+  height: 100%;
+
+  @media (max-width: 650px) {
+    width: 80%;
+    height
+    margin-right: 10;
+  }
 `;
 
 const StyledProject = styled.div`
@@ -71,9 +78,7 @@ const StyledProject = styled.div`
   }
 
   @media (max-width: 650px) {
-    display: flex;
-    margin: 5px 0;
-    flex-direction: column;
+    margin: 1rem 0;
   }
 `;
 
