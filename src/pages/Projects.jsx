@@ -49,7 +49,7 @@ const Container = styled(motion.div)`
 `;
 
 const ContainerSlideIn = styled(motion.div)`
-  width: 66%;
+  width: 60%;
   position: relative;
   margin-right: 50px;
 `;
@@ -118,7 +118,6 @@ const Projects = () => {
           variants={fadeIn("left", "tween", (i + 1) * 0.2, 0.8)}
         >
           <StyledProject onClick={() => setSelectedProject(selectedProject === i ? null : i)}>
-            
             <div
               style={{
                 display: "flex",
@@ -128,14 +127,14 @@ const Projects = () => {
                 marginBottom: "10px",
               }}
             >
-              
-              <div style={{ 
-                display: "flex", 
-                justifyContent: "end", 
-                alignItems: "center",
-                padding: 4 
-                }}>
-                
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "end",
+                  alignItems: "center",
+                  padding: 4,
+                }}
+              >
                 <span style={{ fontSize: 11, fontWeight: 700 }}>{project.year}</span>
                 <a style={{ marginLeft: 10 }} href={project.url} target="_blank" rel="noopener noreferrer">
                   <Social src={Github} alt="CJ's GitHub" />
@@ -144,12 +143,10 @@ const Projects = () => {
                   <Social src={web} alt="CJ's Page" />
                 </a>
               </div>
-
               <div>
-                <h3 style={{fontSize: "22px", fontWeight: 400, marginBottom: 4}}>• {project.name}</h3>
+                <h3 style={{ fontSize: "22px", fontWeight: 400, marginBottom: 4 }}>• {project.name}</h3>
                 <p style={{ fontWeight: 350 }}>{project.projects}</p>
               </div>
-
             </div>
             <AnimatePresence>
               {selectedProject === i && (
