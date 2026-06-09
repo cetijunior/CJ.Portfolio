@@ -89,8 +89,8 @@ const Skills = () => {
     },
     {
       name: "TypeScript",
-      experience: "75",
-      details: "Modern Website Design, Enhanced efficiency"
+      experience: "80",
+      details: "Modern Website Design, Type-safe development, Enhanced efficiency"
     },
     {
       name: "HTML",
@@ -116,6 +116,11 @@ const Skills = () => {
       name: "Python",
       experience: "70",
       details: "Scripting, Data Analysis, Back-End Development"
+    },
+    {
+      name: "Swift",
+      experience: "70",
+      details: "iOS App Development, SwiftUI, Native mobile experiences"
     },
     {
       name: "VS Code",

@@ -144,9 +144,11 @@ const Projects = () => {
                 <a style={{ marginLeft: 10 }} href={project.url} target="_blank" rel="noopener noreferrer">
                   <Social src={Github} alt="CJ's GitHub" />
                 </a>
-                <a href={project.web} target="_blank" rel="noopener noreferrer">
-                  <Social src={web} alt="CJ's Page" />
-                </a>
+                {project.web && (
+                  <a href={project.web} target="_blank" rel="noopener noreferrer">
+                    <Social src={web} alt="Live Demo" />
+                  </a>
+                )}
               </div>
               <div>
                 <h3 style={{ fontSize: "22px", fontWeight: 400, marginBottom: 4 }}>• {project.name}</h3>
