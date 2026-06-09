@@ -109,7 +109,7 @@ const Home = () => {
   useEffect(() => {
     // Initialize Typed on the webD element
     const webD = new Typed(".web-developer", {
-      strings: [".web developer", ".enthusiastic coder", ".digitally creative", ".part-time producer" , ".get in touch!"],
+      strings: [".web developer", ".mobile developer", ".typescript enthusiast", ".ios developer", ".part-time producer", ".get in touch!"],
       startDelay: 400,
       typeSpeed: 70,
       backDelay: 500,
@@ -158,7 +158,16 @@ const Home = () => {
                 Projects -- Projekte
               </Li>
             </Link>
-            
+
+            <Link
+                to="/Experience"
+                style={{ textDecoration: "none", color: "white" }}
+              >
+              <Li>
+                Experience -- Pervoja
+              </Li>
+            </Link>
+
             <Link
                 to="/Contact"
                 style={{ textDecoration: "none", color: "white", hover: "#006633" }}

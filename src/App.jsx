@@ -6,6 +6,7 @@ import Home from "./components/homepage/Home";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
 import Skills from "./pages/Skills";
+import Experience from "./pages/Experience";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -27,6 +28,7 @@ function App() {
               <Route path="/" element={<Main />} />
               <Route path="/Skills" element={<Skills />} />
               <Route path="/Projects" element={<Projects />} />
+              <Route path="/Experience" element={<Experience />} />
               <Route path="/Contact" element={<Contact />} />
             </Route>
           </Routes>
