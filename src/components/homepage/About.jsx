@@ -1,109 +1,175 @@
-import React from 'react';
-import styled from 'styled-components';
-import { motion } from 'framer-motion';
-import { fadeIn, staggerContainer } from '../data/motion';
+import React from "react";
+import styled from "styled-components";
+import { motion } from "framer-motion";
 
-const AboutDiv = styled(motion.div)`
-  max-width: 26rem;
-  max-height: 30rem;
+const Wrap = styled.div`
+  padding: 2.5rem 3rem;
   color: #c3c3c3;
-  position: absolute;
-  margin-right: 1rem;
-  margin-bottom: 1rem;
-  padding: 1.6rem;
-  bottom: 0;
-  right: 0;
   font-family: "Inconsolata", monospace;
-  overflow-y: auto;
-
-  &::-webkit-scrollbar {
-    width: 8px;
-    height: 4px;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: #006633;
-    border-radius: 10px;
-  }
-
-  &::-webkit-scrollbar-track {
-    background-color: #1a1a1a;
-  }
-
-  p {
-    padding-bottom: 1rem;
-    line-height: 1.6;
-  }
+  max-width: 720px;
 
   @media (max-width: 650px) {
-    width: 280px;
-    height: 50%;
-    position: relative;
-    margin-left: -1.6rem;
-    margin-bottom: 2.5rem;
-    margin-top: 1rem;
-    overflow-y: scroll;
-    overflow-x: hidden;
+    padding: 1.5rem;
   }
 `;
 
-const ContainerSlideIn = styled(motion.div)`
-  width: 100%;
-  position: relative;
-  margin-right: 50px;
+const Prompt = styled.p`
+  font-size: 12px;
+  color: #555;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.5px;
+`;
+
+const Divider = styled.div`
+  height: 1px;
+  background: rgba(195, 195, 195, 0.1);
+  margin: 1.25rem 0 1.5rem;
+`;
+
+const Title = styled.h1`
+  font-size: 30px;
+  font-weight: 700;
+  color: #e0e0e0;
+  margin: 0 0 0.3rem;
+
+  span { color: #006633; }
+`;
+
+const Subtitle = styled.p`
+  font-size: 14px;
+  color: #777;
+  margin: 0;
+`;
+
+const InfoGrid = styled.div`
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.35rem 1rem;
+  margin-bottom: 2rem;
+  font-size: 13px;
+`;
+
+const InfoKey = styled.span`
+  color: #006633;
+  font-weight: 700;
+  white-space: nowrap;
+`;
+
+const InfoVal = styled.span`
+  color: #aaa;
+`;
+
+const Bio = styled.div`
+  font-size: 14px;
+  line-height: 1.85;
+  color: #999;
+  margin-bottom: 2rem;
+
+  p { margin: 0 0 1rem; }
+  p:last-child { margin-bottom: 0; }
+`;
+
+const TagsLabel = styled.p`
+  font-size: 11px;
+  color: #555;
+  margin-bottom: 0.6rem;
+  letter-spacing: 0.5px;
+`;
+
+const Tags = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 2rem;
 `;
 
 const Tag = styled.span`
-  display: inline-block;
-  background-color: #006633;
-  color: #fff;
-  font-size: 11px;
+  background: #111;
+  border: 1px solid rgba(0, 102, 51, 0.35);
+  color: #00cc66;
+  font-size: 12px;
   font-weight: 700;
-  padding: 2px 8px;
-  border-radius: 6px;
-  margin: 3px 3px 3px 0;
+  padding: 3px 10px;
+  border-radius: 4px;
+  letter-spacing: 0.3px;
 `;
 
-const About = () => {
-  const techStack = [
-    "JavaScript", "TypeScript", "React", "NextJS",
-    "Swift", "Java", "Python", "Node.js",
-    "HTML", "CSS", "Firebase", "MongoDB", "SQL"
-  ];
+const CTA = styled.p`
+  font-size: 14px;
+  color: #006633;
+  border-left: 2px solid #006633;
+  padding-left: 1rem;
+  line-height: 1.6;
+`;
 
-  return (
-    <AboutDiv
-      variants={staggerContainer}
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: false, amount: 0.25 }}
-    >
-      <ContainerSlideIn variants={fadeIn("left", "tween", 0.2, 0.6)}>
-        <div>
-          <p>
-            Hey! I'm CJ — a self-taught developer based in Albania, passionate about building real things for the web and mobile.
-          </p>
-          <p>
-            I work across the full stack: from polished front-ends in React & NextJS, to back-end services with Node and databases, to native iOS apps in Swift. I pick the right tool for the job.
-          </p>
-          <p>
-            With a background in Electronics Engineering & Computer Science, I blend analytical thinking with creative problem-solving to build products that are fast, clean, and actually useful.
-          </p>
-          <div style={{ marginBottom: "1rem" }}>
-            {techStack.map((tech) => (
-              <Tag key={tech}>{tech}</Tag>
-            ))}
-          </div>
-          <p>
-            Currently building: iOS apps, TypeScript projects, and open-sourcing everything I can. Always learning, always shipping.
-          </p>
-          <h3 style={{ color: "#006633" }}>
-            Open to remote opportunities and collaborations. Let's build something great.
-          </h3>
-        </div>
-      </ContainerSlideIn>
-    </AboutDiv>
-  );
+const techStack = [
+  "JavaScript", "TypeScript", "React", "Next.js",
+  "Swift", "SwiftUI", "Java", "Python",
+  "Node.js", "Firebase", "MongoDB", "SQL",
+  "HTML", "CSS", "Git",
+];
+
+const container = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.07 } },
 };
+
+const item = {
+  hidden: { opacity: 0, y: 14 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.38 } },
+};
+
+const About = () => (
+  <Wrap>
+    <motion.div variants={container} initial="hidden" animate="show">
+      <motion.div variants={item}>
+        <Prompt>$ whoami</Prompt>
+        <Title>Shefqet <span>"CJ"</span> Lame</Title>
+        <Subtitle>Full-Stack & Mobile Developer — Albania</Subtitle>
+        <Divider />
+      </motion.div>
+
+      <motion.div variants={item}>
+        <InfoGrid>
+          <InfoKey>› Background</InfoKey>
+          <InfoVal>CS & Electronics Engineering</InfoVal>
+          <InfoKey>› Status</InfoKey>
+          <InfoVal>Open to opportunities · Building in public</InfoVal>
+          <InfoKey>› Current</InfoKey>
+          <InfoVal>TypeScript apps · iOS (Swift) · Web</InfoVal>
+          <InfoKey>› GitHub</InfoKey>
+          <InfoVal>50+ public repositories</InfoVal>
+        </InfoGrid>
+      </motion.div>
+
+      <motion.div variants={item}>
+        <Bio>
+          <p>
+            Self-taught developer with a background in Computer Science and Electronics Engineering. I build across the full stack — polished React and Next.js front-ends, back-end services with Node and databases, and native iOS apps in Swift.
+          </p>
+          <p>
+            I care about clean code and real products. With 50+ public repositories and projects ranging from e-commerce platforms to iOS camera apps, I learn fastest by building and shipping.
+          </p>
+          <p>
+            Looking to join a team where I can contribute, grow, and work on meaningful software.
+          </p>
+        </Bio>
+      </motion.div>
+
+      <motion.div variants={item}>
+        <TagsLabel>// tech stack</TagsLabel>
+        <Tags>
+          {techStack.map(t => <Tag key={t}>{t}</Tag>)}
+        </Tags>
+      </motion.div>
+
+      <motion.div variants={item}>
+        <CTA>
+          Open to remote work, freelance projects, and interesting collaborations. Let's build something great.
+        </CTA>
+      </motion.div>
+    </motion.div>
+  </Wrap>
+);
 
 export default About;

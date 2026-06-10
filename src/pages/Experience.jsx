@@ -1,130 +1,127 @@
 import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import { fadeIn, staggerContainer } from "../components/data/motion";
 import { experienceData } from "../components/data/data";
 
-const Container = styled(motion.div)`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  width: 50%;
-  height: 85%;
+const Wrap = styled.div`
+  padding: 2.5rem 3rem;
   color: #c3c3c3;
-  position: absolute;
-  margin: 1.6rem;
-  bottom: 0;
-  right: 0;
   font-family: "Inconsolata", monospace;
-  overflow-y: scroll;
-  overflow-x: hidden;
-
-  &::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: #006633;
-    border-radius: 10px;
-  }
-
-  &::-webkit-scrollbar-track {
-    background-color: #1a1a1a;
-  }
 
   @media (max-width: 650px) {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    position: relative;
-    margin-right: 0;
-    overflow-x: hidden;
-    overflow-y: auto;
+    padding: 1.5rem;
   }
 `;
 
-const EntryWrapper = styled(motion.div)`
-  width: 60%;
+const Prompt = styled.p`
+  font-size: 12px;
+  color: #555;
+  margin-bottom: 2.5rem;
+  letter-spacing: 0.5px;
+`;
+
+const Note = styled.p`
+  font-size: 12px;
+  color: #444;
+  border-left: 2px solid #333;
+  padding-left: 1rem;
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+`;
+
+const Timeline = styled.div`
   position: relative;
-  margin-right: 50px;
+  padding-left: 1.75rem;
 
-  @media (max-width: 650px) {
-    width: 80%;
-    margin-right: 10px;
+  &::before {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 10px;
+    bottom: 10px;
+    width: 1px;
+    background: linear-gradient(to bottom, #006633 60%, transparent);
   }
 `;
 
-const Entry = styled.div`
-  color: rgb(195, 195, 195);
-  margin: 1.6rem 0;
-  background-color: #1a1a1a;
-  padding: 1rem 1.4rem;
-  border-radius: 15px;
-  border-left: 3px solid #006633;
-  transition: background-color 0.3s;
+const Entry = styled(motion.div)`
+  position: relative;
+  padding-bottom: 2.5rem;
 
-  &:hover {
-    background-color: #145214;
+  &::before {
+    content: "";
+    position: absolute;
+    left: -1.46rem;
+    top: 7px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #006633;
+    box-shadow: 0 0 8px rgba(0, 204, 102, 0.4);
   }
 
-  @media (max-width: 650px) {
-    margin: 1rem 0;
+  &:last-child {
+    padding-bottom: 0;
+
+    &::before {
+      background: #333;
+      box-shadow: none;
+    }
   }
 `;
 
 const Period = styled.span`
+  display: block;
   font-size: 11px;
-  font-weight: 700;
   color: #006633;
+  font-weight: 700;
   letter-spacing: 0.5px;
+  margin-bottom: 5px;
 `;
 
 const Role = styled.h3`
-  font-size: 18px;
-  font-weight: 600;
-  margin: 6px 0 2px;
+  font-size: 16px;
+  font-weight: 700;
   color: #e0e0e0;
+  margin: 0 0 3px;
 `;
 
 const Place = styled.p`
-  font-size: 13px;
-  font-weight: 400;
-  color: #888;
-  margin-bottom: 10px;
+  font-size: 12px;
+  color: #555;
+  margin: 0 0 10px;
 `;
 
 const Description = styled.p`
-  font-size: 14px;
-  line-height: 1.6;
-  color: #c3c3c3;
+  font-size: 13px;
+  color: #888;
+  line-height: 1.75;
+  margin: 0;
+  max-width: 580px;
 `;
 
-const Experience = () => {
-  return (
-    <Container
-      variants={staggerContainer}
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: false, amount: 0.25 }}
-    >
+const Experience = () => (
+  <Wrap>
+    <Prompt>$ cat experience.log</Prompt>
+    <Note>
+      Self-taught developer — no formal employer yet. This timeline reflects the real milestones: first project, first production deployment, first iOS app, and everything in between.
+    </Note>
+    <Timeline>
       {experienceData.map((entry, i) => (
-        <EntryWrapper
+        <Entry
           key={i}
-          variants={fadeIn("left", "tween", (i + 1) * 0.2, 0.8)}
+          initial={{ opacity: 0, x: -16 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.38, delay: i * 0.1 }}
         >
-          <Entry>
-            <Period>{entry.period}</Period>
-            <Role>• {entry.role}</Role>
-            <Place>{entry.place}</Place>
-            <Description>{entry.description}</Description>
-          </Entry>
-        </EntryWrapper>
+          <Period>{entry.period}</Period>
+          <Role>{entry.role}</Role>
+          <Place>{entry.place}</Place>
+          <Description>{entry.description}</Description>
+        </Entry>
       ))}
-    </Container>
-  );
-};
+    </Timeline>
+  </Wrap>
+);
 
 export default Experience;
